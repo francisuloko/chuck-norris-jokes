@@ -2,15 +2,13 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  mode: "development",
   entry: "/src/index.js",
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
   },
   output: { path: path.resolve(__dirname, "dist") },
-  optimization: {
-    runtimeChunk: 'single',
-  },
   module: {
     rules: [
       {

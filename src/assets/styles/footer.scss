@@ -1,0 +1,20 @@
+$bg-url: '../assets_Homework_Front-End_02/bitmap-copy@3x.png';
+
+footer {
+  height: 100%;
+  background-color: #000;
+  background: url($bg-url) no-repeat;
+  background-size: cover;
+
+  .footer-section {
+    width: 80%;
+    margin: 0 auto;
+    padding: 70px;
+
+    h5 {
+      width: 150px;
+      color: white;
+      margin: 10px 0;
+    }
+  }
+}

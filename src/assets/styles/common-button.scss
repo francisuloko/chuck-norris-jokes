@@ -1,0 +1,16 @@
+.common-button {
+  display: flex;
+  align-items: center;
+  button {
+    background-color: transparent;
+    color: burlywood;
+    border: 0;
+    outline: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  img {
+    width: 20px;
+    margin-left: 10px;
+  }
+}

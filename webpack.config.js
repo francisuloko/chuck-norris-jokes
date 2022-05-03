@@ -3,10 +3,11 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "/src/index.js",
+  entry: ["regenerator-runtime/runtime.js", "/src/index.js"],
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
+    historyApiFallback: true,
   },
   output: { path: path.resolve(__dirname, "dist") },
   module: {
@@ -32,6 +33,17 @@ module.exports = {
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
       },
     ],
   },

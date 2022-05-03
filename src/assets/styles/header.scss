@@ -1,0 +1,97 @@
+/* Sass Variables and Mixins */
+@mixin testborder{ border: 1px solid magenta; }
+@mixin reset{ margin: 0; padding: 0; }
+@mixin shadow($x, $y, $fuzz, $color){
+  box-shadow: $x $y $fuzz $color;
+}
+@mixin subtle-gradient($c1, $c2){
+  background: linear-gradient(135deg, $c1 0%,$c2 100%);
+}
+$nav-color: #000000;
+$nav-drop-color: #000000;
+$line-height: 2em;
+$nav-padding: .75em;
+$a-hover: #ffffff;
+
+.header-section {
+  background-color: #303030;
+  padding: 0;
+  margin: 0;
+
+  nav{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: end;
+    ul{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      li{
+        width: 198px;
+        padding: 19px 0;
+        font-family: Monstserrat, Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        position: relative;
+        text-align: center;
+        a{
+          color: #fff;
+        }
+        ul{ 
+          display: none;
+          position: absolute;
+          left: 0;
+          top: 60px;
+          overflow: auto;
+          background-color: #fff;
+          border: 1px solid lightgray;
+          border-radius: 3px;
+          width: 100%;
+          padding-top: 10px;
+          li{
+            width: 160px;
+            display: block;
+            text-align: left;
+            padding: 10px;
+            margin: 0 10px;
+            border-bottom: 1px solid lightgrey;
+            a {
+              color: #333;
+              font-size: 14px;
+              font-family: Monserrate Regular, Arial, Helvetica, sans-serif;
+            }
+            &:hover {
+              background-color: transparent;
+            }
+          }
+
+          :last-child {
+            border-bottom: 0;
+            margin-bottom: 5px;
+            a { color: #cfb995 }
+          }
+        }
+        &:hover {
+          background-color: #cfb995;
+          ul{ display: block; }
+        }
+      }
+    }
+  }
+}
+
+.my-space {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 10px;
+    margin: 0 10px;
+  }
+}

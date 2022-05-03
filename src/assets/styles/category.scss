@@ -1,15 +1,18 @@
+@use 'variables'as var;
+
 .categories {
   width: 80%;
-  margin: 20px auto;
+  margin: 30px auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 20px;
 
-  span {
-    width: 190px;
-    background-color: red;
+  button {
+    flex-basis: 18%;
+    min-width: 178px;
+    background-color: gold;
     color: white;
     padding: 14px;
     font-family: Monstserrat, Arial, Helvetica, sans-serif;
@@ -21,5 +24,21 @@
     letter-spacing: normal;
     position: relative;
     text-align: center;
+    outline: 0;
+    border: 0;
+    border-radius: 4px;
+
+    &:hover {
+      color: #333;
+      border: 1px solid #333;
+      padding: 13px;
+    }
+  }
+
+  .view-all {
+    @include var.gold-button;
+    background-color: transparent;
+    padding: 13px;
+    justify-content: center;
   }
 }

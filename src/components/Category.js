@@ -1,16 +1,25 @@
-import React from 'react';
-import '../assets/styles/category.scss';
+import React, { useContext } from "react";
+import "../assets/styles/category.scss";
+import { JokesContext, allCategories } from "../context/JokesContext";
 
-export default function Category() {
+export default function Category(props) {
+  const { jokes } = useContext(JokesContext);
+
+  const handleCategory = (category) => {
+    const temp = jokes.filter((item) => item.categories[0] === category);
+    props.setTag(category);
+    props.changeCategory(temp);
+  };
+
+
+  const selectCategory = allCategories.map((category) => (
+    <button key={category} onClick={() => handleCategory(category)}>{category}</button>
+  ));
+
   return (
-    <div className='categories'>
-      <span>CATEGORY 1</span>
-      <span>CATEGORY 2</span>
-      <span>CATEGORY 3</span>
-      <span>CATEGORY 4</span>
-      <span>CATEGORY 5</span>
-      <span>CATEGORY 1</span>
-      <span>VIEW ALL</span>
+    <div className="categories">
+      {selectCategory}
+      <button className="view-all">VIEW ALL</button>
     </div>
-  )
+  );
 }

@@ -1,0 +1,33 @@
+@use 'variables' as var;
+
+.tag-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div.tag {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 4px;
+    padding: 5px 10px;
+    width: 120px;
+    margin: 2px 0;
+    color: white;
+    border-radius: 100px;
+    font-size: 12px;
+
+    span {
+      text-transform: uppercase;
+    }
+  }
+  div.trend {
+    color: var.$gold-text;
+    text-transform: uppercase;
+  }
+}
+
+.green {
+  background-color: green;
+}

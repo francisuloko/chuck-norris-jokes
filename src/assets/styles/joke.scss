@@ -1,0 +1,39 @@
+@mixin shadow($x, $y, $fuzz, $color) {
+  box-shadow: $x $y $fuzz $color;
+}
+
+.joke {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+
+  &:hover {
+    @include shadow(1px, 1px, 1px, rgba(0, 0, 0, .2));
+  }
+
+  .text {    
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+
+      img {
+        width: 10px;
+        margin-right: 10px;
+      }
+    }
+    p {
+      color: #333;
+    }
+  }
+
+  .joke-details {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}

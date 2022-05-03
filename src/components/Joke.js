@@ -10,9 +10,9 @@ export default function Joke(props) {
       <div className="text">
         <div className="title">
           <img src={ThunderboltIcon} alt="thunderbolt icon" />
-          <h2>{props.joke.title}</h2>
+          <h2>{props.joke.categories[0]? props.joke.categories[0] + " Joke" : "Uncatorized Joke"}</h2>
         </div>
-        <p>{props.joke.text}</p>
+        <p className="joke-text">{props.joke.value}</p>
       </div>
       <div className="joke-details">
         <Link to={`/jokes/${props.joke.id}`} text="See Stat">

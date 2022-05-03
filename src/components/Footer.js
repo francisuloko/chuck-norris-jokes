@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="footer-section">
       <h5>GOT JOKES? GET PAID FOR SUBMITTING.</h5>
-      <Button text="Submit Joke"/>
+      <Button text="Submit Joke" />
     </div>
   )
 }

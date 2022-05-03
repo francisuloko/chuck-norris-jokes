@@ -50,7 +50,9 @@ $a-hover: #ffffff;
           overflow: auto;
           background-color: #fff;
           border: 1px solid lightgray;
-          border-radius: 5px;
+          border-radius: 3px;
+          width: 100%;
+          padding-top: 10px;
           li{
             width: 160px;
             display: block;

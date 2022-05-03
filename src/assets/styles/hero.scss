@@ -1,38 +1,22 @@
-@mixin flex-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-@mixin common-style {
-    width: 350px;
-    font-family: Montserrat;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5em;
-    letter-spacing: normal;
-    text-align: center;
-}
-
+@use 'variables' as var;
 
 .hero-section {
-  @include flex-column;
+  @include var.flex-column;
   width: 100%;
   height:264px;
   background-color: #000;
-  background-image: url(../assets_Homework_Front-End_01/bitmap@3x.png);
+  background-image: url(var.$bg-hero);
   background-repeat: none;
+  background-size: contain;
 
   h1 {
-    @include common-style;
-    font-size: 45px;
+    @include var.common-style;
+    font-size: 50px;
     color: #cfb995;
   }
 
   p {
-    @include common-style;
+    @include var.common-style;
     font-size: 20px;
     color: #fff;
   }

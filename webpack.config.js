@@ -3,10 +3,11 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "/src/index.js",
+  entry: ["regenerator-runtime/runtime.js", "/src/index.js"],
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
+    historyApiFallback: true,
   },
   output: { path: path.resolve(__dirname, "dist") },
   module: {

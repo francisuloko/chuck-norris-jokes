@@ -12,7 +12,7 @@ export default function Layout(props) {
           <div className="category-section">{props.aside}</div>
           <div className={props.border ? "jokes-section top-border" : "jokes-section"}>
             {props.tag ? <Tag color="green" category={props.category}/> : ""}
-            <div className="">{props.grid}</div>
+            <div className="grid-section">{props.grid}</div>
           </div>
         </section>
       </main>

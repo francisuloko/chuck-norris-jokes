@@ -11,12 +11,22 @@ import Joke from "../components/Joke";
 export default function Jokes() {
   const { jokes } = useContext(JokesContext);
   const [state, setState] = useState(jokes);
-  console.log(jokes);
-  const list = state.map((joke) => <Joke key={joke.id} joke={joke} />);
+  const [Items, setItems] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
+  const list = Items.map((joke) => <Joke key={joke.id} joke={joke} />);
   const [tag, setTag] = useState("all");
+  
+  function loadMoreItems() {
+    setIsFetching(true);
+    setItems((prevState) => [
+      ...jokes.slice(0, prevState.length + 6)
+    ]);
+    setIsFetching(false);
+  }
 
   useEffect(() => {
-    setState(jokes)
+    setState(jokes.slice(0,6));
+    setItems(state)
   }, [jokes]);
 
   return (
@@ -24,8 +34,8 @@ export default function Jokes() {
       <Layout
         header={<Header />}
         hero={<Hero />}
-        aside={<Category changeCategory={setState} setTag={setTag} />}
-        grid={<Grid gridItems={list} columns={3} />}
+        aside={<Category changeCategory={setItems} setTag={setTag} />}
+        grid={<Grid gridItems={list} columns={3} loadMore={loadMoreItems} isFetching={isFetching} />}
         footer={<Footer />}
         tag={true}
         border={true}

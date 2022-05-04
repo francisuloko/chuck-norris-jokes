@@ -1,4 +1,13 @@
 @use 'variables'as var;
+$colors: (#cc6698,
+  #0869ad,
+  #ff8300,
+  #7A86b8,
+  #f05133,
+  #2aa9e0,
+  #71bf45,
+  #9e79d7,
+);
 
 .categories {
   width: 80%;
@@ -8,6 +17,14 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 20px;
+
+  @for $i from 0 through 18 {
+    $color: nth($colors, random(length($colors)));
+
+    .color-#{$i} {
+      background-color: $color;
+    }
+  }
 
   button {
     flex-basis: 18%;
@@ -33,6 +50,7 @@
       border: 1px solid #333;
       padding: 13px;
     }
+
   }
 
   .view-all {

@@ -15,8 +15,8 @@ export default function Category(props) {
     props.changeCategory(temp);
   };
 
-  const selectCategory = allCategories.map((category) => (
-    <button key={category} onClick={() => handleCategory(category)}>
+  const selectCategory = allCategories.map((category, index) => (
+    <button className={"color-" + index} key={category} onClick={() => handleCategory(category)}>
       {category}
     </button>
   ));

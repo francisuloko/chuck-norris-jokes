@@ -9,6 +9,7 @@ const JokesContextProvider = (props) => {
   const [jokes, setJokes] = useState([]);
   const [categories, setCategories] = useState([]);
   allCategories = categories;
+
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
@@ -17,8 +18,14 @@ const JokesContextProvider = (props) => {
       const categories = await axios.get(
         `https://api.chucknorris.io/jokes/categories`
       );
-      setJokes(data.result);
-      setCategories(categories.data)
+      const temp = data.result.map((joke) => {
+        if (!joke.categories[0]) {
+          joke.categories.push("uncategorized");
+        }
+        return { ...joke, likes: 0, unlikes: 0 };
+      });
+      setJokes(temp);
+      setCategories([...categories.data, "uncategorized"]);
     }
     fetchData();
   }, []);

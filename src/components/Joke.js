@@ -15,7 +15,7 @@ export default function Joke(props) {
         <p className="joke-text">{props.joke.value}</p>
       </div>
       <div className="joke-details">
-        <Link to={`/jokes/${props.joke.id}`} text="See Stat">
+        <Link to={`/jokes/${props.joke.id}`} state={{ joke: props.joke }} text="See Stat">
           <Button text="See Stat" />
         </Link>
       </div>

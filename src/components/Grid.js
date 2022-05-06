@@ -7,12 +7,15 @@ export default function Grid(props) {
     <>
       <div className={"grid-" + props.columns}>{props.gridItems}</div>
       <div className="load-more">
-        {!props.isFetching && (
-          <button className="load-more-btn" onClick={props.loadMore}>
-            View more
-            <img src={ArrowDown} alt="Arrow down" />
-          </button>
-        )}
+        {!props.isFetching &&
+          (!props.hideButton ? (
+            <button className="load-more-btn" onClick={props.loadMore}>
+              View more
+              <img src={ArrowDown} alt="Arrow down" />
+            </button>
+          ) : (
+            ""
+          ))}
       </div>
     </>
   );

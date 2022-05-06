@@ -17,7 +17,7 @@ export default function Header() {
           <li className="my-space">
             <img src={ProfileIcon} alt="profile icon" />
             <a href="#">MY SPACE</a>
-            <img src={PathIcon} alt="path icon" />
+            <img className="drop-icon" src={PathIcon} alt="path icon" />
             <ul>
               <li>
                 <a href="#">My published jokes</a>

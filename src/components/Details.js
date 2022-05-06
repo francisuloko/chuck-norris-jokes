@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { JokesContext } from "../context/JokesContext";
 import Tag from "./Tag";
 import "../assets/styles/details.scss";
@@ -96,13 +96,29 @@ export default function Details() {
           <h4>THE TOP JOKES THIS WEEK</h4>
           <ul>
             <li>
-              <a href="#">{jokes[0].value.split(" ").slice(0, 5).join(" ")}</a>
+              <Link to={"/jokes/" + joke.id} state={{ joke }}>
+                {jokes[0].value.split(" ").slice(0, 5).join(" ")}
+              </Link>
             </li>
             <li>
-              <a href="#">{jokes[1].value.split(" ").slice(0, 5).join(" ")}</a>
+              <Link to={"/jokes/" + joke.id} state={{ joke }}>
+                {jokes[1].value.split(" ").slice(0, 5).join(" ")}
+              </Link>
             </li>
             <li>
-              <a href="#">{jokes[2].value.split(" ").slice(0, 5).join(" ")}</a>
+              <Link to={"/jokes/" + joke.id} state={{ joke }}>
+                {jokes[2].value.split(" ").slice(0, 5).join(" ")}
+              </Link>
+            </li>
+            <li>
+              <Link to={"/jokes/" + joke.id} state={{ joke }}>
+                {jokes[3].value.split(" ").slice(0, 5).join(" ")}
+              </Link>
+            </li>
+            <li>
+              <Link to={"/jokes/" + joke.id} state={{ joke }}>
+                {jokes[4].value.split(" ").slice(0, 5).join(" ")}
+              </Link>
             </li>
           </ul>
         </div>

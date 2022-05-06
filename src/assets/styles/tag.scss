@@ -9,10 +9,10 @@
   div.tag {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 4px;
     padding: 5px 10px;
-    width: 130px;
+    width: auto;
     margin: 2px 0;
     color: white;
     border-radius: 100px;

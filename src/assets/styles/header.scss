@@ -88,10 +88,13 @@ $a-hover: #ffffff;
 .my-space {
   display: flex;
   align-items: center;
-  justify-content: center;
+
+  img.drop-icon {
+    margin-left: auto;
+  }
 
   img {
-    width: 10px;
+    width: 12px;
     margin: 0 10px;
   }
 }

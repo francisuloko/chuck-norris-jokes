@@ -8,7 +8,7 @@ import ArrowUp from "../assets/assets_Homework_Front-End_01/path-copy-7@3x.png";
 export default function Category(props) {
   const { jokes } = useContext(JokesContext);
   const [showMore, setShowMore] = useState(false);
-
+  console.log(allCategories);
   const handleCategory = (category) => {
     const temp = jokes.filter((item) => item.categories[0] === category);
     props.setTag(category);
@@ -21,11 +21,11 @@ export default function Category(props) {
     </button>
   ));
 
-  selectCategory.push(
-    <button key={"uncategorized"} onClick={() => handleCategory()}>
-      uncategorized
-    </button>
-  );
+  // selectCategory.push(
+  //   <button key={"uncategorized"} onClick={() => handleCategory()}>
+  //     uncategorized
+  //   </button>
+  // );
 
   return (
     <div className="categories">

@@ -7,7 +7,11 @@ $colors: (#cc6698,
   #2aa9e0,
   #71bf45,
   #9e79d7,
-);
+  #aa98a9,
+  #738276,
+  #4b86b4,
+  #86becb,
+  #b6e3c4);
 
 .categories {
   width: 80%;
@@ -44,6 +48,7 @@ $colors: (#cc6698,
     outline: 0;
     border: 0;
     border-radius: 4px;
+    text-transform: capitalize;
 
     &:hover {
       color: #333;
@@ -62,7 +67,7 @@ $colors: (#cc6698,
     font-size: 14px;
 
     img {
-      width: 14px;
+      width: 10px;
       margin-left: 30px;
     }
 

@@ -10,7 +10,11 @@ import Prev from "../assets/assets_Homework_Front-End_02/arrow-left@3x.png";
 
 export default function Details() {
   const { state } = useLocation();
-  const { jokes, setJokes } = useContext(JokesContext);
+  const { jokes } = useContext(JokesContext);
+  const [likeButton, setLikeButton] = useState({
+    like: false,
+    dislike: false,
+  });
   const index = jokes.findIndex((object) => {
     return object.id === state.joke.id;
   });
@@ -22,13 +26,19 @@ export default function Details() {
       ...joke,
       likes: joke.likes + 1,
     });
-    const temp = jokes.filter(obj => obj.id !== joke.id);
-    setJokes([...temp, joke]);
+    setLikeButton({
+      like: true,
+      dislike: false,
+    });
   };
-  const unlike = () => {
+  const dislike = () => {
     setJoke({
       ...joke,
       unlikes: joke.unlikes + 1,
+    });
+    setLikeButton({
+      like: false,
+      dislike: true,
     });
   };
   const next = () => {
@@ -37,10 +47,14 @@ export default function Details() {
   const prev = () => {
     current !== 0 ? setCurrent(current - 1) : setCurrent(jokes.length - 1);
   };
-  
+
   useEffect(() => {
     setJoke(jokes[current]);
-  }, [current])
+  }, [current]);
+  useEffect(() => {
+    const i = jokes.indexOf(jokes[current]);
+    jokes[i] = joke;
+  }, [joke]);
 
   return (
     <>
@@ -56,14 +70,22 @@ export default function Details() {
         </div>
         <div className="engagement-buttons">
           <div className="likes">
-            <div className="like" onClick={() => like()}>
+            <button
+              disabled={likeButton.like}
+              className="like"
+              onClick={() => like()}
+            >
               <img src={LikeIcon} alt="Like icon" />
               <span className="counter">{joke.likes}</span>
-            </div>
-            <div className="unlike" onClick={() => unlike()}>
-              <img src={UnlikeIcon} alt="Unlike icon" />
+            </button>
+            <button
+              disabled={likeButton.dislike}
+              className="dislike"
+              onClick={() => dislike()}
+            >
+              <img src={UnlikeIcon} alt="Dislike icon" />
               <span className="counter">{joke.unlikes}</span>
-            </div>
+            </button>
           </div>
           <div className="controls">
             <button className="prev" onClick={() => prev()}>

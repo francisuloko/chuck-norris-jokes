@@ -9,8 +9,8 @@
 
 - React
 - webpack
+- HTML/CSS/SCSS
 - ES6
-- SCSS
 
 ## Live
 View site [here](https://chuck-norris-1465-jokes.netlify.app/)

@@ -11,12 +11,13 @@ import Joke from "../components/Joke";
 export default function Jokes() {
   const { jokes } = useContext(JokesContext);
   const [state, setState] = useState(jokes);
-  const [Items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
-  const list = Items.map((joke) => <Joke key={joke.id} joke={joke} />);
+  const list = items.map((joke) => <Joke key={joke.id} joke={joke} />);
   const [tag, setTag] = useState("all");
   
   function loadMoreItems() {
+    setTag("all")
     setIsFetching(true);
     setItems((prevState) => [
       ...jokes.slice(0, prevState.length + 6)

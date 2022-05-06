@@ -26,19 +26,11 @@ export default function Details() {
       ...joke,
       likes: joke.likes + 1,
     });
-    setLikeButton({
-      like: true,
-      dislike: false,
-    });
   };
   const dislike = () => {
     setJoke({
       ...joke,
       unlikes: joke.unlikes + 1,
-    });
-    setLikeButton({
-      like: false,
-      dislike: true,
     });
   };
   const next = () => {

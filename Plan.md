@@ -7,14 +7,18 @@
 # Frontend
 
 1. Layout Component
- Build the app layout using flex
 2. Header Section
 3. Hero Section
 4. Aside Section - Category & Back Button
 5. Main Section - Grid & Jokes
 6. Footer Section
 7. Fonts
-8. Final touches
+8. Responsive design
 
 # Functionality
 1. Search Functionality
+2. Joke categorization
+3. Load More functionality
+4. Like and Dislike functionality
+5. Next and Prev functionality
+6. 

@@ -14,6 +14,9 @@
     }
   }
   .leftPane {
+    .leftCard {
+      height: 400px;
+    }
     h2 {
       @include var.common-style;
       font-size: 45px;
@@ -23,6 +26,10 @@
       line-height: 30px;
       letter-spacing: 1px;
       margin: 10px 0;
+    }
+    button {
+      cursor: pointer;
+      outline: .5px solid #eee;
     }
     .engagement-buttons {
       display: flex;
@@ -36,12 +43,12 @@
         background-color: green;
         color: green;
       }
-      .unlike {
+      .dislike {
         background-color: red;
         color: red
       }
     }
-    .likes div {
+    .likes button {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -64,6 +71,24 @@
       }
       img {
         width: 10px;
+      }
+    }
+  }
+
+  .rightPane {
+    .rightCard {
+      h4 {
+        margin: 0 0 10px 0;
+      }
+
+      ul {
+        li {
+          margin: 10px 0;
+          a {
+            color: #333;
+            text-decoration: underline;
+          }
+        }
       }
     }
   }

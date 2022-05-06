@@ -1,5 +1,6 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
+import { JokesContext } from "../context/JokesContext";
 import Tag from "./Tag";
 import "../assets/styles/details.scss";
 import LikeIcon from "../assets/assets_Homework_Front-End_02/hand@3x.png";
@@ -8,39 +9,82 @@ import Next from "../assets/assets_Homework_Front-End_02/arrow-left-copy@3x.png"
 import Prev from "../assets/assets_Homework_Front-End_02/arrow-left@3x.png";
 
 export default function Details() {
-  const { id } = useParams();
+  const { state } = useLocation();
+  const { jokes } = useContext(JokesContext);
+  const [likeButton, setLikeButton] = useState({
+    like: false,
+    dislike: false,
+  });
+  const index = jokes.findIndex((object) => {
+    return object.id === state.joke.id;
+  });
+  const [current, setCurrent] = useState(index);
+  const [joke, setJoke] = useState(jokes[current]);
+
+  const like = () => {
+    setJoke({
+      ...joke,
+      likes: joke.likes + 1,
+    });
+  };
+  const dislike = () => {
+    setJoke({
+      ...joke,
+      unlikes: joke.unlikes + 1,
+    });
+  };
+  const next = () => {
+    current !== jokes.length - 1 ? setCurrent(current + 1) : setCurrent(0);
+  };
+  const prev = () => {
+    current !== 0 ? setCurrent(current - 1) : setCurrent(jokes.length - 1);
+  };
+
+  useEffect(() => {
+    setJoke(jokes[current]);
+  }, [current]);
+  useEffect(() => {
+    const i = jokes.indexOf(jokes[current]);
+    jokes[i] = joke;
+  }, [joke]);
 
   return (
     <>
       <div className="leftPane">
         <div className="leftCard">
-          <Tag color="green" category="Category" icon={true} />
+          <Tag
+            color="green"
+            category={joke.categories[0] ? joke.categories[0] : "Uncategorized"}
+            icon={true}
+          />
           <h2>Chuck Norris Joke</h2>
-          <p>
-            An old grandma brings a bus driver a bag of peanut everyday. First
-            the bus driver enjoyed the peanuts but after a week of eating themm
-            he asked: "Please granny, don't bring me peanuts anymore. Have them
-            yourself." The granny answers: "You know, I don't have teeth
-            anymore. I just prefer to suck the chocolate around them."
-          </p>
+          <p>{joke.value}</p>
         </div>
         <div className="engagement-buttons">
           <div className="likes">
-            <div className="like">
+            <button
+              disabled={likeButton.like}
+              className="like"
+              onClick={() => like()}
+            >
               <img src={LikeIcon} alt="Like icon" />
-              <span className="counter">0</span>
-            </div>
-            <div className="unlike">
-              <img src={UnlikeIcon} alt="Unlike icon" />
-              <span className="counter">0</span>
-            </div>
+              <span className="counter">{joke.likes}</span>
+            </button>
+            <button
+              disabled={likeButton.dislike}
+              className="dislike"
+              onClick={() => dislike()}
+            >
+              <img src={UnlikeIcon} alt="Dislike icon" />
+              <span className="counter">{joke.unlikes}</span>
+            </button>
           </div>
           <div className="controls">
-            <button className="prev">
+            <button className="prev" onClick={() => prev()}>
               <img src={Prev} alt="left chevron icon" />
               PREV.JOKE
             </button>
-            <button className="next">
+            <button className="next" onClick={() => next()}>
               NEXT.JOKE
               <img src={Next} alt="left chevron icon" />
             </button>
@@ -52,13 +96,29 @@ export default function Details() {
           <h4>THE TOP JOKES THIS WEEK</h4>
           <ul>
             <li>
-              <a href="#">Joke 1</a>
+              <Link to={"/jokes/" + joke.id} state={{ joke }}>
+                {jokes[0].value.split(" ").slice(0, 5).join(" ")}
+              </Link>
             </li>
             <li>
-              <a href="#">Joke 2</a>
+              <Link to={"/jokes/" + joke.id} state={{ joke }}>
+                {jokes[1].value.split(" ").slice(0, 5).join(" ")}
+              </Link>
             </li>
             <li>
-              <a href="#">Joke 3</a>
+              <Link to={"/jokes/" + joke.id} state={{ joke }}>
+                {jokes[2].value.split(" ").slice(0, 5).join(" ")}
+              </Link>
+            </li>
+            <li>
+              <Link to={"/jokes/" + joke.id} state={{ joke }}>
+                {jokes[3].value.split(" ").slice(0, 5).join(" ")}
+              </Link>
+            </li>
+            <li>
+              <Link to={"/jokes/" + joke.id} state={{ joke }}>
+                {jokes[4].value.split(" ").slice(0, 5).join(" ")}
+              </Link>
             </li>
           </ul>
         </div>

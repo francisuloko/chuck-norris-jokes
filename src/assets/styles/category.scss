@@ -1,4 +1,22 @@
 @use 'variables'as var;
+$colors: (#cc6698,
+  #0869ad,
+  #ff8300,
+  #7A86b8,
+  #f05133,
+  #2aa9e0,
+  #71bf45,
+  #9e79d7,
+  #aa98a9,
+  #738276,
+  #4b86b4,
+  #86becb,
+  #b6e3c4,
+  #7b853b,
+  #803737,
+  #b44b96,
+  #9fcb86,
+  #b6e3e1);
 
 .categories {
   width: 80%;
@@ -8,6 +26,14 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 20px;
+
+  @for $i from 0 through 18 {
+    $color: nth($colors, random(length($colors)));
+
+    .color-#{$i} {
+      background-color: $color;
+    }
+  }
 
   button {
     flex-basis: 18%;
@@ -27,18 +53,38 @@
     outline: 0;
     border: 0;
     border-radius: 4px;
+    text-transform: capitalize;
 
     &:hover {
       color: #333;
       border: 1px solid #333;
       padding: 13px;
     }
+
   }
 
   .view-all {
     @include var.gold-button;
     background-color: transparent;
-    padding: 13px;
-    justify-content: center;
+    justify-content: start;
+    padding: 13px 13px 13px 60px;
+    text-transform: uppercase;
+    font-size: 14px;
+
+    img {
+      width: 10px;
+      margin-left: 30px;
+    }
+
+    img.arrow-up {
+      transform: rotate(180Deg);
+    }
+
+    &:hover {
+      background-color: transparent;
+      padding: 13px 13px 13px 60px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
   }
 }

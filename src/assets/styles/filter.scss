@@ -1,0 +1,76 @@
+$thunderbold-icon: "../assets_Homework_Front-End_01/green-light-copy-2@3x.png";
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-field {
+  position: relative;
+  width: 400px;
+  margin: 40px auto;
+  padding: 0;
+
+  input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 3px;
+    outline: 0;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+
+    &::placeholder {
+      color: #fff;
+    }
+  }
+
+  img {
+    position: absolute;
+    width: 24px;
+    top: 13px;
+    right: 15px;
+  }
+
+  ul {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #eee;
+
+    li {
+      border-bottom: 1px solid #eee;
+      margin: 5px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-transform: capitalize;
+
+      &::before {
+        background-image: url($thunderbold-icon);
+        background-size: 10px 20px;
+        display: inline-block;
+        margin-right: 5px;
+        width: 10px;
+        height: 20px;
+        content: "";
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .hide {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+}

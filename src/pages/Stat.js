@@ -15,7 +15,7 @@ export default function Stat() {
         header={<Header />}
         hero={<Hero />}
         aside={<Back />}
-        grid={<Grid gridItems={<Details />} columns={2}/>}
+        grid={<Grid hideButton={true} gridItems={<Details />} columns={2}/>}
         footer={<Footer />}
         category=""
       />
